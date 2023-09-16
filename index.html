@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News app</title>
+
+    <script src="./js/controller.js" type="module" defer></script>
+    <script
+      src="https://kit.fontawesome.com/b8addb5494.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="flex">
+      <img src="./assets/logo.png" alt="logo" class="logo" id="logo" />
+      <ul class="nav-links flex" id="nav-links">
+        <i class="fa-solid fa-xmark btn btn-close" id="btn-close"></i>
+        <li>
+          <a
+            href="#"
+            class="nav-link active"
+            id="nav-link"
+            data-query="Indian politics"
+            >Politics</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link"
+            id="nav-link"
+            data-query="finance"
+            class="active"
+            >Finance</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="nav-link" data-query="sports"
+            >Sports</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link"
+            id="nav-link"
+            data-query="science and technology"
+            >Science and Technology</a
+          >
+        </li>
+      </ul>
+      <form class="search-form flex" id="search-form">
+        <input
+          type="text"
+          name="input-search"
+          id="input-search"
+          class="input-search"
+          placeholder="e.g. Automobile"
+        />
+        <button id="btn-search" class="btn-search">Search</button>
+      </form>
+      <i class="fa-solid fa-bars btn-menu" id="btn-menu"></i>
+    </nav>
+    <main>
+      <div class="news-container flex" id="news-container"></div>
+      
+    <template>
+      <div class="news-card" id="news-card">
+        <img
+          src="https://placehold.co/400x200"
+          alt="news image"
+          class="news-img"
+          id="news-img"
+          loading="lazy"
+        />
+        <h3 class="news-title" id="news-title">News Title</h3>
+        <h5 class="news-src-date" id="news-src-date">News src 15/09/23</h5>
+        <p class="news-content" id="news-content">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto fuga
+          animi dolor recusandae doloremque nobis dolorum molestiae accusamus
+          laboriosam minus?
+        </p>
+      </div>
+    </template>
+  </body>
+
+  <div class="loader-container hidden" id="loader-container">
+    <div class="loader" id="loader"></div>
+  </div>
+</main>
+</html>

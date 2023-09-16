@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --link-color:#01023e;
+    --link-color-2:#0077B6;
+    --text-color:#023E8A;
+    --accent-color-1:#0096C7;
+    --accent-color-2:#00B4D8;
+    --accent-color-3:#90E0EF;
+    --accent-color-4:#ADE8F4;
+    --accent-color-5:#dff5f9;
+    --logo-color:#FF599C;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+}
+p,h3,h5{
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    font-size: 14px;
+}
+input,button{
+    font-family: 'Roboto', sans-serif;
+}
+li{
+    list-style: none;
+}
+
+
+/* ---- nav ---- */
+nav{
+    width: 100vw;
+    background-color:var(--accent-color-5);
+    align-items: center;
+    box-shadow: 0 0 8px var(--link-color);
+    position: fixed;
+    top:0;
+    z-index: 5;
+}
+.logo{
+    width: 100px;
+}
+.nav-links{
+    gap:20px;
+}
+
+.nav-link{
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    font-weight: 400;
+    color:var(--text-color);
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active{
+    font-weight: 500;
+}
+.nav-link::after{
+    content: '';
+    width:0;
+    height: 3px;
+    background-color: var(--text-color);
+    position: absolute;
+    left:0;
+    bottom:-5px;
+    transition: all 0.5s;
+}
+.nav-link.active::after{
+    width: 100%;
+}
+.search-form{
+    gap: 10px;
+}
+.search-form .input-search{
+    font-family: 'Roboto',sans-serif;
+    color:var(--text-color);
+    width: 300px;
+    padding: 8px;
+    border:1px solid var(--accent-color-3); 
+    border-radius: 4px;
+    outline-color:var(--accent-color-2);
+}
+.search-form .btn-search{
+    padding: 8px 15px;
+    background-color: var(--accent-color-2);
+    font-family: 'Robot',sans-serif;
+    font-weight: 700;
+    outline:none;
+    color: #fff;
+    border:none;
+    border-radius: 4px;
+}
+.search-form .btn-search:hover{
+    background-color: var(--link-color-2);
+}
+.search-form .btn-search:active{
+    transform:scale(95%);
+}
+.btn-menu,.btn-close{
+    display: none;
+}
+
+/* ----- Main ---- */
+.news-container{
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 125px;
+    flex-wrap: wrap;
+}
+.news-container .news-card{
+    /* border: 1px solid red; */
+    border-radius: 4px;
+    width: 420px;
+    padding: 10px;
+    margin-bottom: 35px;
+    overflow: hidden;
+    background-color: var(--accent-color-5);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.news-card:hover{
+    background-color: var(--accent-color-4);
+    transform: scale(103%);
+}
+.news-title, .news-src-date{
+    color:var(--link-color);
+}
+.news-src-date{
+    font-weight: 500;
+}
+.news-card .news-img{
+    width: 400px;
+    height: 200px;
+    object-fit: cover;
+}
+.news-card .news-content{
+    margin-top: 10px;
+    color:var(--text-color);
+}
+
+.loader-container{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hidden{
+    display: none;
+}
+.loader{
+    width: 150px;
+    height: 150px;
+    border: 20px solid var(--accent-color-4);
+    border-top: 20px solid var(--link-color-2);
+    border-radius: 50%;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin infinite linear 2s;
+}
+
+@keyframes spin{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+
+}
+
+@media only screen and (max-width:600px){
+    .logo{
+        width: 60px;
+    }
+    .nav-links{
+        position:fixed;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 250px;
+        height: 100vh;
+        top:0;
+        right: -250px;
+        background-color: var(--logo-color);
+        padding: 20px;
+        box-shadow: 0 0 5px var(--link-color);
+        transition: right 0.5s;
+    }
+    .nav-link{
+        color: var(--accent-color-5);
+    }
+    .nav-link.active::after{
+        background-color: #fff;
+    }
+    .search-form .input-search{
+        width: 200px;
+    }
+    .btn-menu, .btn-close{
+        display: block;
+        font-size: 20px;
+        color:var(--link-color);
+        cursor: pointer;
+    }
+    .btn-menu:active, .btn-close:active{
+        font-size: 19px;
+    } 
+
+    /* ---- main---- */
+    
+    
+}
